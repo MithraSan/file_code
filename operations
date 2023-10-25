@@ -1,0 +1,67 @@
+import os
+
+def create_file(mithra):
+    try:
+        with open(f'{mithra}.txt', 'w') as file:
+            print(f"File '{mithra}' created successfully.")
+    except Exception as e:
+        print(f"Error creating file '{mithra}': {e}")
+
+def read_file(mithra):
+    try:
+        with open(f'{mithra}.txt', 'r') as file:
+            content = file.read()
+            print(f"Content of '{mithra}':\n{content}")
+    except Exception as e:
+        print(f"Error reading file '{mithra}': {e}")
+
+def write_to_file(mithra, Helloworld):
+    try:
+        with open(f'{mithra}.txt', 'w') as file:
+            file.write(Helloworld)
+            print(f"Content written to '{mithra}' successfully.")
+    except Exception as e:
+        print(f"Error writing to file '{mithra}': {e}")
+
+def append_to_file(mithra, Helloworld):
+    try:
+        with open(f'{mithra}.txt', 'a') as file:
+            file.write(Helloworld + '\n')
+            print(f"Content appended to '{mithra}' successfully.")
+    except Exception as e:
+        print(f"Error appending to file '{mithra}': {e}")
+
+def rename_file(mithra, san):
+    try:
+        os.rename(f'{mithra}.txt', f'{san}.txt')
+        print(f"File '{mithra}' renamed to '{san}' successfully.")
+    except Exception as e:
+        print(f"Error renaming file '{mithra}': {e}")
+
+def remove_file(san):
+    try:
+        os.remove(f'{san}.txt')
+        print(f"File '{san}' removed successfully.")
+    except Exception as e:
+        print(f"Error removing file '{san}': {e}")
+
+
+create_file('mithra')
+write_to_file('mithra', 'I can do it!')
+read_file('mithra')
+append_to_file('mithra', 'Today is my day!!')
+read_file('mithra')
+rename_file('mithra', 'san')
+remove_file('san')
+
+#Output:
+File 'mithra' created successfully.
+Content written to 'mithra' successfully.
+Content of 'mithra':
+I can do it!
+Content appended to 'mithra' successfully.
+Content of 'mithra':
+I can do it!Today is my day!!
+
+File 'mithra' renamed to 'san' successfully.
+File 'san' removed successfully.
